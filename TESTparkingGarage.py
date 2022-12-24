@@ -46,19 +46,22 @@ class ParkingGarage():
             
             
 def playGarage():
+    size = int(input("How many spaces would you like in your garage?\n"))
+    yourGarage = ParkingGarage(size)
     playing = True
     while playing == True:
-        size = int(input("How many spaces would you like in your garage?"))
-        yourGarage = ParkingGarage(size)
-        choice = input("Press 'T' to take a ticket.  Press 'P' to pay.  Press 'L' to leave garage.  Type 'print' to print garage status.  Press 'Q' to quit.").lower()
         
-        if input == 't':
+        choice = input("\nPress 'T' to take a ticket.  Press 'P' to pay.  Press 'L' to leave garage.  Type 'print' to print garage status.  Press 'Q' to quit.\n").lower()
+        
+        if choice == 't':
             yourGarage.takeTicket()
-        elif input == 'p':
+        elif choice == 'p':
             yourGarage.payForParking()
-        elif input == 'l':
+        elif choice == 'l':
             yourGarage.leaveGarage()
-        elif input == 'print':
+        elif choice == 'print':
             yourGarage.printStatus()
-        elif input == 'q':
+        elif choice == 'q':
             playing = False
+            
+playGarage()
