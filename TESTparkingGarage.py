@@ -42,5 +42,23 @@ class ParkingGarage():
             print("I'm sorry but you don't have a ticket. How did you get in here?")
             
     def printStatus(self):
-        print(self.tickets, self.spaces, self.currentTicket, self.takenTickets)
+        print(f"Tickets: {self.tickets}, Spaces: {self.spaces}, CurrentTicket: {self.currentTicket}, TakenTickets: {self.takenTickets}")
             
+            
+def playGarage():
+    playing = True
+    while playing == True:
+        size = int(input("How many spaces would you like in your garage?"))
+        yourGarage = ParkingGarage(size)
+        choice = input("Press 'T' to take a ticket.  Press 'P' to pay.  Press 'L' to leave garage.  Type 'print' to print garage status.  Press 'Q' to quit.").lower()
+        
+        if input == 't':
+            yourGarage.takeTicket()
+        elif input == 'p':
+            yourGarage.payForParking()
+        elif input == 'l':
+            yourGarage.leaveGarage()
+        elif input == 'print':
+            yourGarage.printStatus()
+        elif input == 'q':
+            playing = False
