@@ -12,6 +12,7 @@ class ParkingGarage():
             self.currentTicket = self.tickets.pop()
             self.spaces.pop()
             self.takenTickets.append(self.currentTicket)
+            print("You took 1 ticket. Please park your car.")
         else:
             print("I'm sorry, there are currently no spaces available. Please try again later.")
     
@@ -44,7 +45,7 @@ class ParkingGarage():
             print("I'm sorry but you don't have a ticket. How did you get in here?")
             
     def printStatus(self):
-        print(f"Tickets: {self.tickets}, Spaces: {self.spaces}, CurrentTicket: {self.currentTicket}, TakenTickets: {self.takenTickets}")
+        print(f"TICKETS: {self.tickets}\nSPACES: {self.spaces}\nCURRENT TICKET: {self.currentTicket}\nTAKEN TICKETS: {self.takenTickets}")
         
     def clrscr(self):
         print("\n" * 20)
@@ -56,7 +57,7 @@ def playGarage():
     playing = True
     while playing == True:
         
-        choice = input("\nPress 'T' to take a ticket.  Press 'P' to pay.  Press 'L' to leave garage.  Type 'print' to print garage status.  Press 'Q' to quit.\n").lower()
+        choice = input("\nCHOOSE AN OPTION:\n'T' to take a ticket.\n'P' to pay.\n'L' to leave garage.\n'Q' to quit.\n'print' to print garage status.\nCHOICE: ").lower()
         yourGarage.clrscr()
         
         if choice == 't':
