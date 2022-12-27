@@ -80,6 +80,6 @@ def playGarage():
             playing = False
             end_time = time.time()
             if empty == True and full == True:
-                print(f"Your time was {round(end_time - start_time, 2)}. Write that score down, I don't have a database.")
+                print(f"Your time was {round(end_time - start_time, 1)}. Write that score down, I don't have a database.")
             
 playGarage()
