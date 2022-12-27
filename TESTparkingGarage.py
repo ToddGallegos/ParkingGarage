@@ -1,4 +1,4 @@
-
+import time
 
 class ParkingGarage():
     def __init__(self, size):
@@ -55,6 +55,10 @@ def playGarage():
     size = int(input("How many spaces would you like in your garage?\n"))
     yourGarage = ParkingGarage(size)
     playing = True
+    empty = False
+    full = False
+    if size == 10:
+        start_time = time.time()
     while playing == True:
         
         choice = input("\nCHOOSE AN OPTION:\n'T' to take a ticket.\n'P' to pay.\n'L' to leave garage.\n'Q' to quit.\n'print' to print garage status.\nCHOICE: ").lower()
@@ -62,13 +66,20 @@ def playGarage():
         
         if choice == 't':
             yourGarage.takeTicket()
+            if not yourGarage.tickets:
+                empty = True
         elif choice == 'p':
             yourGarage.payForParking()
         elif choice == 'l':
             yourGarage.leaveGarage()
+            if empty == True and len(yourGarage.tickets) == 10:
+                full = True
         elif choice == 'print':
             yourGarage.printStatus()
         elif choice == 'q':
             playing = False
+            end_time = time.time()
+            if empty == True and full == True:
+                print(f"Your time was {round(end_time - start_time, 2)}. Write that score down, I don't have a database.")
             
 playGarage()
