@@ -1,5 +1,7 @@
-import time
+### ParkingGarage class which instantiates with variables for tickets, spaces, currentTicket, and takenTickets.
+### 5 methods allow for taking tickets, paying for parking, leaving the garage, printing out the garage status, and clearing the terminal screen.
 
+import time
 class ParkingGarage():
     def __init__(self, size):
         self.tickets = [{"paid": False} for i in range(size)]
@@ -50,7 +52,12 @@ class ParkingGarage():
     def clrscr(self):
         print("\n" * 20)
             
-            
+
+
+### playGarage is a function that allows the user to interact with the ParkingGarage Class.   
+### there is also a hidden game mode, where if the user chooses a garage size of 10, the game will track how long it takes you from instantiating your ParkingGarage object,
+### to fill your garage up, empty it, and then quit. It will print out your time if you meet the objectives.
+      
 def playGarage():
     size = int(input("How many spaces would you like in your garage?\n"))
     yourGarage = ParkingGarage(size)
